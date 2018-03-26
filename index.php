@@ -1,43 +1,518 @@
-<center>
-<h2>home page</h2>
-<form action = 'index.php' method = 'post'>
-<table width="400">
-
-    
-<tr><td>menu_name</td> <td><input type = 'text' name = 'menu_name'></td></tr>
-
-<tr><td>title</td> <td><textarea cols = '15' rows = '2' name = 'title'></textarea></td></tr>
-
-<tr><td>section1</td><td><textarea cols = '15' rows = '2' name = 'address1'></textarea></td></tr>
-<tr><td>section2</td><td><textarea cols = '15' rows = '2' name = 'address2'></textarea></td></tr>
-<tr><td>section3</td><td><textarea cols = '15' rows = '2' name = 'address3'></textarea></td></tr>
-
-<tr><td><input type = 'submit' value = 'send' name ='update'></td> 
-<td><input type = 'reset' value = 'cancel'></td> </tr>
-</table>
-</form>
-
-
 <?php
-extract($_POST);
-include 'connection.php';
-if(isset($update))
-{	
- 
-   $query = "UPDATE home SET menu_name = '".$menu_name."',
-	                 title = '".$title."',
-	                 section1='".$address1."',
-	                 section2='".$address2."',
-	                 section3='".$address3."' "; 
+require '../admin/connection.php';
+$query = "SELECT home.*, slider.*, slider2.*,slider3.*,slider4.*,ourservice.*
+ FROM home, slider,slider2,slider3,slider4,ourservice";
+$result = mysqli_query($conn,$query);
+$fetch_record = mysqli_fetch_array($result);
 
-	$result = mysqli_query($conn,$query);
-	if($result)
-	{
-		header('Location:index.php');
-	}else
-	{
-		echo "not update";
-	}
-}
 ?>
-
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Proprietorship a Corporate Business Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Proprietorship Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!--FlexSlider-->
+		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+		<script defer src="js/jquery.flexslider.js"></script>
+		<script type="text/javascript">
+		$(window).load(function(){
+		  $('.flexslider').flexslider({
+			animation: "slide",
+			start: function(slider){
+			  $('body').removeClass('loading');
+			}
+		  });
+		});
+	  </script>
+<!--End-slider-script-->
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<!-- //font-awesome icons -->
+<link href="//fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- banner -->
+	<div class="address-info">
+		<div class	container">
+			<div class="address-info-text">
+				<p><i class="fa fa-map-marker" aria-hidden="true"></i>  7th Street, Melbourne City, Australia.</p>
+			</div>
+		</div>
+	</div>
+	<div class="header">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h1><a class="navbar-brand" href="index.php">Proprietorship</a></h1>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="cl-effect-13" id="cl-effect-13">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="index.php"><?php echo $fetch_record['menu_name'];?></a></li>
+							<li><a href="about.php">About</a></li>
+							<li><a href="gallery.php">Gallery</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="icons.php">Icons</a></li>
+									<li><a href="typography.html">Typography</a></li>
+								</ul>
+							</li>
+							<li><a href="contact.php">Contact</a></li>
+						</ul>
+						
+					</nav>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="banner">
+		<div class="container">
+		<div class="slider">
+						<div class="callbacks_container">
+							<ul class="rslides callbacks callbacks1" id="slider4">
+								<li>
+									<div class="agileits_w3layouts_banner_info">
+										<div class="col-md-4 w3-agile-bann">
+											<ul>
+												<li><i class="fa fa-cog" aria-hidden="true"></i><?php echo $fetch_record['content1'] ;?> </li>
+												<li><i class="fa fa-external-link" aria-hidden="true"></i><?php echo $fetch_record['content2'] ;?> </li>
+												<li><i class="fa fa-area-chart" aria-hidden="true"></i><?php echo $fetch_record['content3'] ;?> </li>
+												<li><i class="fa fa-university" aria-hidden="true"></i><?php echo $fetch_record['content4'] ;?> </li>
+												<li><i class="fa fa-users" aria-hidden="true"></i><?php echo $fetch_record['content5'] ;?> </li>
+											</ul>
+										</div>
+										<div class="col-md-8 w3-agileits-bann">
+											<h3><?php echo $fetch_record['content6'] ;?> </h3>
+											<p>Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper bibendum.<p>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</li>
+								<li>
+									<div class="agileits_w3layouts_banner_info">
+										<div class="col-md-4 w3-agile-bann">
+											<ul>
+												<li><i class="fa fa-cog" aria-hidden="true"></i><?php echo $fetch_record['cont1'] ;?></li>
+												<li><i class="fa fa-external-link" aria-hidden="true"></i><?php echo $fetch_record['cont2'] ;?></li>
+												<li><i class="fa fa-university" aria-hidden="true"></i><?php echo $fetch_record['cont3'] ;?></li>
+												<li><i class="fa fa-users" aria-hidden="true"></i><?php echo $fetch_record['cont4'] ;?></li>
+												<li><i class="fa fa-area-chart" aria-hidden="true"></i><?php echo $fetch_record['cont5'] ;?></li>
+											</ul>
+										</div>
+										<div class="col-md-8 w3-agileits-bann">
+											<h3><?php echo $fetch_record['cont6'] ;?></h3>
+											<p>Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper bibendum.<p>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</li>
+								<li>
+									<div class="agileits_w3layouts_banner_info">
+										<div class="col-md-4 w3-agile-bann">
+											<ul>
+												<li><i class="fa fa-external-link" aria-hidden="true"></i><?php echo $fetch_record['con1'];?></li>
+												<li><i class="fa fa-area-chart" aria-hidden="true"></i><?php echo $fetch_record['con2'];?></li>
+												<li><i class="fa fa-university" aria-hidden="true"></i><?php echo$fetch_record['con3'];?></li>
+												<li><i class="fa fa-users" aria-hidden="true"></i><?php echo$fetch_record['con4'];?></li>
+												<li><i class="fa fa-cog" aria-hidden="true"></i><?php echo$fetch_record['con5'];?></li>
+											</ul>
+										</div>
+										<div class="col-md-8 w3-agileits-bann">
+											<h3><?php echo$fetch_record['con6'];?></h3>
+											<p>Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper bibendum.<p>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</li>
+								<li>
+									<div class="agileits_w3layouts_banner_info">
+										<div class="col-md-4 w3-agile-bann">
+											<ul>
+												<li><i class="fa fa-university" aria-hidden="true"></i><?php echo$fetch_record['co1'] ;?></li>
+												<li><i class="fa fa-users" aria-hidden="true"></i><?php echo$fetch_record['co2'] ;?></li>
+												<li><i class="fa fa-cog" aria-hidden="true"></i><?php echo$fetch_record['co3'];?></li>
+												<li><i class="fa fa-external-link" aria-hidden="true"></i><?php echo $fetch_record['co4'];?></li>
+												<li><i class="fa fa-area-chart" aria-hidden="true"></i><?php echo $fetch_record['co5'] ;?></li>
+											</ul>
+										</div>
+										<div class="col-md-8 w3-agileits-bann">
+											<h3><?php echo $fetch_record['co6'] ;?></h3>
+											<p>Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper bibendum.<p>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+						<script>
+							// You can also use "$(window).load(function() {"
+							$(function () {
+							  // Slideshow 4
+							  $("#slider4").responsiveSlides({
+								auto: true,
+								pager:true,
+								nav:false,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+								  $('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+								  $('.events').append("<li>after event fired.</li>");
+								}
+							  });
+						
+							});
+						 </script>
+						<!--banner Slider starts Here-->
+			</div>
+		</div>
+	</div>
+<!-- //banner -->
+<!-- agileinfo -->
+<div class="agileinfo-services">
+		<div class="container">
+			<h2 class="w3l_head w3l_head1"><?php echo $fetch_record['title'];?></h2>
+			<p class="w3ls-p">Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper  bibendum.</p>
+			<div class="w3_agileits_services_grids">
+				<div class="col-md-4 w3_agileits_services_grid">
+					<div class="w3_agileits_services_grid_agile">
+						<div class="w3_agileits_services_grid_1">
+							<i class="fa fa-question-circle" aria-hidden="true"></i>
+						</div>
+						<h3><?php echo $fetch_record['section1'];?></h3>
+						<p>Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper  bibendum.</p>
+					</div>
+				</div>
+				<div class="col-md-4 w3_agileits_services_grid">
+					<div class="w3_agileits_services_grid_agile">
+						<div class="w3_agileits_services_grid_1">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<h3><?php echo $fetch_record['section2'];?></h3>
+						<p>Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper  bibendum.</p>
+					</div>
+				</div>
+				<div class="col-md-4 w3_agileits_services_grid">
+					<div class="w3_agileits_services_grid_agile">
+						<div class="w3_agileits_services_grid_1">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<h3><?php echo $fetch_record['section3'];?></h3>
+						<p>Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper  bibendum.</p>
+					</div>
+				</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //agileinfo -->
+	<!-- services-bottom -->
+	<div class="services-bottom">
+	<div class="col-md-5 wthree_services_bottom_right">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="w3_agile_services_bottom_right_grid">
+								<p class="w3layouts_head_slide"> Velit tempor</p>
+							</div>
+						</li>
+						<li>
+							<div class="w3_agile_services_bottom_right_grid1">
+								<p class="w3layouts_head_slide"> Tempus commodo</p>
+							</div>
+						</li>
+						<li>
+							<div class="w3_agile_services_bottom_right_grid2">
+								<p class="w3layouts_head_slide"> Efficitur odio</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-7 wthree_services_bottom_left">
+			<div class="wthree_services_bottom_left_grid">
+				<div class="col-md-6 w3_agileits_services_bottom_l_grid">
+					<div class="agile_services_bottom_l_grid1">
+						<img src="images/g1.jpg" alt=" " class="img-responsive" />
+						<div class="w3_service_bottom_grid_pos">
+							<h3>Velit tempor</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 w3_agileits_services_bottom_r_grid">
+					<h4>Ultrices lorem</h4>
+					<p>Praesent vulputate ipsum a velit tempor convallis. 
+						Phasellus ultrices lorem eget erat tempus commodo efficitur odio.</p>
+					
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="wthree_services_bottom_left_grid">
+				<div class="col-md-6 w3_agileits_services_bottom_r_grid">
+					<h4>Vulputate ipsum</h4>
+					<p>Praesent vulputate ipsum a velit tempor convallis. 
+						Phasellus ultrices lorem eget erat tempus commodo efficitur odio.</p>
+					
+				</div>
+				<div class="col-md-6 w3_agileits_services_bottom_l_grid">
+					<div class="agile_services_bottom_l_grid1">
+						<img src="images/g2.jpg" alt=" " class="img-responsive" />
+						<div class="w3_service_bottom_grid_pos">
+								<h3>Velit tempor</h3>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- //services-bottom -->
+	<!-- services -->
+	<div class="banner-bottom">
+	<div class="container">
+			<h3 class="w3l_head w3l_head1">Our Services</h3>
+			<p class="w3ls-p">Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper  bibendum.</p>
+	<div class="ser-bottom">
+	<div class="col-md-4 col-sm-4 agileits_banner_bottom_left">
+		<div class="agileinfo_banner_bottom_pos">
+			<div class="w3_agileits_banner_bottom_pos_grid">
+				<div class="col-xs-4 wthree_banner_bottom_grid_left">
+					<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+						<i class="fa fa-laptop" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+					<h4><?php echo$fetch_record['sec1'];?></h4>
+					<p>Morbi viverra lacus commodo felis semper, eu iaculis lectus feugiat.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-4 agileits_banner_bottom_left">
+		<div class="agileinfo_banner_bottom_pos">
+			<div class="w3_agileits_banner_bottom_pos_grid">
+				<div class="col-xs-4 wthree_banner_bottom_grid_left">
+					<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+					<h4><?php echo$fetch_record['sec2'];?></h4>
+					<p>Morbi viverra lacus commodo felis semper, eu iaculis lectus feugiat.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-4 agileits_banner_bottom_left">
+		<div class="agileinfo_banner_bottom_pos">
+			<div class="w3_agileits_banner_bottom_pos_grid">
+				<div class="col-xs-4 wthree_banner_bottom_grid_left">
+					<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+						<i class="fa fa-mobile" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+					<h4><?php echo$fetch_record['sec3'];?></h4>
+					<p>Morbi viverra lacus commodo felis semper, eu iaculis lectus feugiat.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-4 agileits_banner_bottom_left">
+		<div class="agileinfo_banner_bottom_pos">
+			<div class="w3_agileits_banner_bottom_pos_grid">
+				<div class="col-xs-4 wthree_banner_bottom_grid_left">
+					<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+						<i class="fa fa-download" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+					<h4><?php echo$fetch_record['sec4'];?></h4>
+					<p>Morbi viverra lacus commodo felis semper, eu iaculis lectus feugiat.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-4 agileits_banner_bottom_left">
+		<div class="agileinfo_banner_bottom_pos">
+			<div class="w3_agileits_banner_bottom_pos_grid">
+				<div class="col-xs-4 wthree_banner_bottom_grid_left">
+					<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+					<h4><?php echo$fetch_record['sec5'];?></h4>
+					<p>Morbi viverra lacus commodo felis semper, eu iaculis lectus feugiat.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-4 agileits_banner_bottom_left">
+		<div class="agileinfo_banner_bottom_pos">
+			<div class="w3_agileits_banner_bottom_pos_grid">
+				<div class="col-xs-4 wthree_banner_bottom_grid_left">
+					<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+						<i class="fa fa-smile-o" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+					<h4><?php echo$fetch_record['sec6'];?></h4>
+					<p>Morbi viverra lacus commodo felis semper, eu iaculis lectus feugiat.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"> </div>
+	</div>
+	</div>
+</div>
+	<!-- //services -->
+	<!-- news -->
+	<div class="news"> 
+		<div class="container">
+			<h3 class="w3l_head w3l_head1">Recent News</h3>
+			<p class="w3ls-p">Donec semper rutrum ipsum et bibendum. Sed condimentum dolor velit semper rutrum ipsum et velit semper  bibendum.</p>
+			<div class="new-agileinfo">
+				<div class="col-md-4 news-left">
+					<ul id="demo1_thumbs" class="list-inline"> 
+						<li><a href="images/g6.jpg"><img src="images/i2.jpg" alt="" data-desoslide-caption="<h3>Maecenas </h3> <br>Eligendi optio nam libero tempore cum soluta ">
+							<div class="news-w3text">
+								<h4>Maecenas aliqua</h4>
+								<h6><i class="fa fa-calendar" aria-hidden="true"></i> 05 / 09 / 2016</h6>	
+								<p>Integer viverra eleifend neque, duis vulputate tempus laoreet. </p>
+							</div> 
+						</a></li>
+						<li><a href="images/g9.jpg"><img src="images/i1.jpg" alt="" data-desoslide-caption="<h3>Facere  </h3> <br>Nam libero tempore cum soluta nobis est eligendi ">
+							<div class="news-w3text">
+								<h4>Facere possimus</h4>
+								<h6><i class="fa fa-calendar" aria-hidden="true"></i> 05 / 09 / 2016</h6>	
+								<p>Aliquam erat volutpat. Duis vulputate tempus laoreet.</p>
+							</div>   
+						</a></li>
+						<li><a href="images/g8.jpg"><img src="images/i3.jpg" alt="" data-desoslide-caption="<h3>Nulla </h3> <br>Nam libero tempore cum soluta nobis est eligendi ">
+							<div class="news-w3text">
+								<h4>Nulla molestie</h4>
+								<h6><i class="fa fa-calendar" aria-hidden="true"></i> 05 / 09 / 2016</h6>	
+								<p>Aliquam erat volutpat. Duis vulputate tempus laoreet.</p>
+							</div> 
+						</a></li>
+						<li><a href="images/g7.jpg"><img src="images/i4.jpg" alt="" data-desoslide-caption="<h3>Duis </h3> <br>Eligendi optio nam libero tempore cum soluta nobis est ">
+							<div class="news-w3text">
+								<h4>Duis accumsan</h4>
+								<h6><i class="fa fa-calendar" aria-hidden="true"></i> 05 / 09 / 2016</h6>	
+								<p>Integer viverra eleifend neque, duis vulputate tempus laoreet. </p>
+							</div> 
+						</a></li> 
+					</ul>
+				</div>
+				<div id="demo1_main_image" class="col-md-8  news-right"></div>
+				<div class="clearfix"></div>
+			</div>    
+			<link rel="stylesheet" href="css/jquery.desoslide.css">
+			<script src="js/jquery.desoslide.js"></script> 
+			<script>
+			$('#demo1_thumbs').desoSlide({
+				main: {
+					container: '#demo1_main_image',
+					cssClass: 'img-responsive'
+				},
+				 effect: 'sideFade',
+				caption: true
+			});
+			</script> 
+		</div>
+	</div>
+	<!-- //news --> 
+	<!-- footer -->
+	<div class="footer-top">
+		<div class="container">
+			<div class="col-md-3 w3ls-footer-top">
+				<h3>QUICK LINKS</h3>
+					<ul>
+						<li><a href="index.php">Home</a></li>
+						<li><a href="about.php">About</a></li>
+						<li><a href="gallery.php">Gallery</a></li>
+						<li><a href="icons.php">Short Codes</a></li>
+						<li><a href="contact.php">Contact</a></li>
+					</ul>
+			</div>
+			<div class="col-md-4 wthree-footer-top">
+				<h3>SUPPORT</h3>
+					<ul>
+					<li><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 7th Street, Melbourne City, Australia.</li>
+					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@example.com">info@example.com</a></li>
+					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> (4584) 5689 0254 128</li>
+				</ul>
+			</div>
+			<div class="col-md-5 w3l-footer-top">
+				<h3>NEWSLETTER</h3>
+				<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit reprehenderit qui in ea.</p>
+					<form action="#" method="post" class="newsletter">
+						<input class="email" type="email" placeholder="Your email..." required="">
+						<input type="submit" class="submit"  value="">
+					</form>
+			</div>
+				<div class="clearfix"></div>
+			<div class="footer-w3layouts">
+				<div class="agile-copy">
+					<p>© 2018 Proprietorship. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				</div>
+				<div class="agileits-social">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-rss"></i></a></li>
+						<li><a href="#"><i class="fa fa-vk"></i></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+	<script src="js/responsiveslides.min.js"></script>
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>
